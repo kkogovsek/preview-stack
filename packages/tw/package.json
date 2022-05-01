@@ -1,0 +1,14 @@
+{
+  "name": "tw",
+  "version": "0.0.0",
+  "description": "styled-components like utility for tailwind css",
+  "main": "./index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Klemen Kogovsek <klemen.kogovsek@1337.tech>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.1.0"
+  }
+}
