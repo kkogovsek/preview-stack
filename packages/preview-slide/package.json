@@ -1,7 +1,8 @@
 {
-  "name": "host",
+  "name": "preview-slide",
   "version": "0.0.0",
-  "description": "Host app that loads all the modules",
+  "description": "",
+  "main": "./src/index.tsx",
   "scripts": {
     "start": "webpack-cli serve",
     "dev": "webpack-dashboard -m -- webpack-cli serve",
@@ -9,8 +10,8 @@
     "serve": "serve dist -p 1337",
     "clean": "rm -rf dist"
   },
-  "author": "Klemen Kogovse <klemen.kogovsek@1337.tech>",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
