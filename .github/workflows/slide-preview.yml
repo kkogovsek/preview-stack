@@ -48,4 +48,4 @@ jobs:
       - name: Deploy
         run: |
           cd packages/preview-slide
-          aws s3 sync ./dist s3://previews-talk-hosting/${{ github.event.pull_request.number }}
+          aws s3 sync ./dist s3://previews-talk-hosting/${{ github.event.pull_request.number }}/preview-slide
