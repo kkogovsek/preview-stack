@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+env:
+  PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
+
 jobs:
   preview:
     runs-on: ubuntu-latest

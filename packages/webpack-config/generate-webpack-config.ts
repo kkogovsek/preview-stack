@@ -15,9 +15,16 @@ type SimpleConfig = {
   entry: string;
   template?: string | boolean;
   container?: string;
+  pullRequestContainer?: boolean;
 };
 
-module.exports = ({ port, entry, template, container }: SimpleConfig) => ({
+module.exports = ({
+  port,
+  entry,
+  template,
+  container,
+  pullRequestContainer,
+}: SimpleConfig) => ({
   entry,
   mode: "development",
   devServer: {
@@ -73,7 +80,11 @@ module.exports = ({ port, entry, template, container }: SimpleConfig) => ({
     ...(container
       ? [
           new ModuleFederationPlugin({
-            name: container,
+            name: `container${
+              pullRequestContainer && process.env.PULL_REQUEST_ID
+                ? `_pr_${process.env.PULL_REQUEST_ID}`
+                : ""
+            }`,
             filename: "container.js",
             exposes: {
               "./entry": "./src/index.tsx",
