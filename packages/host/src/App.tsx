@@ -6,17 +6,19 @@ export default function App() {
   return (
     <div>
       <El>Hello World</El>
-      {/* <RemoteComponent
-        system={{
-          module: "./entry",
-          scope: "federated_preview_slide",
-          url: "http://localhost:1338/container.js",
-        }}
-      /> */}
+      {
+        <RemoteComponent
+          system={{
+            module: "./entry",
+            scope: "federated_preview_slide",
+            url: "http://localhost:1338/container.js",
+          }}
+        />
+      }
       <RemoteComponent
         system={{
           module: "./entry",
-          scope: "federated_preview_slide",
+          scope: "federated_preview_slide_pr_1",
           url: "https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/1/preview-slide/container.js",
         }}
       />
