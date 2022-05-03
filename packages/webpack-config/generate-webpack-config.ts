@@ -80,7 +80,7 @@ module.exports = ({
     ...(container
       ? [
           new ModuleFederationPlugin({
-            name: `container${
+            name: `${container}${
               pullRequestContainer && process.env.PULL_REQUEST_ID
                 ? `_pr_${process.env.PULL_REQUEST_ID}`
                 : ""
