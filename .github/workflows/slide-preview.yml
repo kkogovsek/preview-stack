@@ -52,3 +52,9 @@ jobs:
         run: |
           cd packages/preview-slide
           aws s3 sync ./dist s3://previews-talk-hosting/${{ github.event.pull_request.number }}/preview-slide --acl public-read
+
+      - name: Propagate
+        run: |
+          curl -X POST ${{ secrets.NOTIFY_URL }} \
+            -H "Content-Type: application/json" \
+            -d '{"type": "build_complete", "pr_id": "${{ github.event.pull_request.number }}"}'
