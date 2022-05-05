@@ -14,9 +14,29 @@ export function Previews() {
   React.useEffect(() => {
     fetch(
       "https://ktbundglul5nizfvttcgpiiz6i0tbcsw.lambda-url.eu-central-1.on.aws/"
-    )
-      .then((res) => res.json())
-      .then((requests) => setPullRequests(requests));
+    ).then((res) => res.json());
+    // .then((requests) => setPullRequests(requests));
+  }, []);
+
+  React.useEffect(() => {
+    const connection = new WebSocket(
+      "wss://jon5wk72z9.execute-api.eu-central-1.amazonaws.com/production"
+    );
+    connection.addEventListener("message", (event) => {
+      try {
+        console.log(event.data);
+        const data = JSON.parse(event.data);
+        if (data.type === "build_complete") {
+          setPullRequests((currentPulls) => {
+            if (!currentPulls.find((pr) => pr.number === data.pr_id)) {
+              return currentPulls.concat({ number: data.pr_id });
+            } else {
+              return currentPulls;
+            }
+          });
+        }
+      } catch (error) {}
+    });
   }, []);
 
   return pullRequests.map((pull, index) => (
