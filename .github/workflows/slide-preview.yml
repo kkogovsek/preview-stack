@@ -40,6 +40,10 @@ jobs:
         with:
           node-version: 18.x
 
+      - name: Rename preview slide
+        run: |
+          (cd packages/preview-slide && sed 's/preview-slide/preview-slide-${{ github.event.pull_request.number }}/g' package.json > package.json.tmp && mv package.json.tmp package.json)
+
       - name: Install dependencies
         run: npm install
 
