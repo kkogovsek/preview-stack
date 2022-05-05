@@ -4,10 +4,11 @@ const ModuleFederationPlugin =
   require("webpack").container.ModuleFederationPlugin;
 const path = require("path");
 const DashboardPlugin = require("webpack-dashboard/plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const esbuildOptions = {
   loader: "tsx",
-  target: "es2015",
+  target: "es2020",
 };
 
 type SimpleConfig = {
@@ -16,6 +17,8 @@ type SimpleConfig = {
   template?: string | boolean;
   container?: string;
   pullRequestContainer?: boolean;
+  copy?: Array<{ from: string; to: string }>;
+  localFsPath?: string;
 };
 
 module.exports = ({
@@ -24,6 +27,8 @@ module.exports = ({
   template,
   container,
   pullRequestContainer,
+  copy,
+  localFsPath,
 }: SimpleConfig) => ({
   entry,
   mode: "development",
@@ -31,12 +36,18 @@ module.exports = ({
     // contentBase: path.join(__dirname, "dist"),
     port,
     open: !!template,
+    headers: {
+      "Cache-Control": "no-store",
+    },
   },
   output: {
     publicPath: "auto",
   },
   resolve: {
     extensions: [".ts", ".js", ".json", ".jsx", ".tsx", ".css"],
+    fallback: {
+      path: require.resolve("path-browserify"),
+    },
   },
   module: {
     rules: [
@@ -98,6 +109,16 @@ module.exports = ({
           }),
         ]
       : []),
+    ...(copy
+      ? [
+          new CopyPlugin({
+            patterns: copy,
+          }),
+        ]
+      : []),
     new DashboardPlugin({}),
+    new webpack.DefinePlugin({
+      LOCAL_BASE: JSON.stringify(localFsPath),
+    }),
   ],
 });

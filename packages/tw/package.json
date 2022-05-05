@@ -9,6 +9,6 @@
   "author": "Klemen Kogovsek <klemen.kogovsek@1337.tech>",
   "license": "MIT",
   "dependencies": {
-    "react": "^18.1.0"
+    "react": "^17.0.2"
   }
 }

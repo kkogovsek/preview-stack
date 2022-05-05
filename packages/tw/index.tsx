@@ -47,7 +47,7 @@ export const tw = new Proxy(
             );
             return React.createElement(
               el,
-              { ...props, ref, className: `${classString} ${className}` },
+              { ...props, ref, className: `${classString} ${className ?? ""}` },
               children
             );
           }

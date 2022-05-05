@@ -1,8 +1,11 @@
 import React from "react";
-import ReactDom from "react-dom/client";
-import App from "./App";
+import ReactDom from "react-dom";
 import "./base.css";
 
-const container = document.getElementById("root");
-const root = ReactDom.createRoot(container);
-root.render(<App />);
+window.EXCALIDRAW_ASSET_PATH = `/assets/`;
+
+import("./App").then((module) => {
+  const App = module.default;
+  const container = document.getElementById("root");
+  const root = ReactDom.render(<App />, container);
+});
