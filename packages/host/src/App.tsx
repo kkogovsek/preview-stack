@@ -41,7 +41,8 @@ const PreviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   & > * {
-    height: 20vh;
+    flex-shrink: 0;
+    height: 250px;
     overflow: hidden;
   }
 `;

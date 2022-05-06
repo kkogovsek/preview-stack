@@ -26,8 +26,8 @@ export function Excalidraw({ edit = false, content, path }) {
         style={{
           flexGrow: 1,
           flexShrink: 0,
-          width: "80vw",
-          height: "70vh",
+          position: "relative",
+          width: "100%",
         }}
       >
         {edit && (
@@ -52,7 +52,7 @@ export function Excalidraw({ edit = false, content, path }) {
             valueRef.current = { elements };
           }}
           viewModeEnabled={!edit}
-          zenModeEnabled={false}
+          zenModeEnabled={!edit}
           theme="dark"
         />
       </div>

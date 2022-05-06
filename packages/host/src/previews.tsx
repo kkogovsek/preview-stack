@@ -1,5 +1,6 @@
 import React from "react";
 import { RemoteComponent } from "./loader";
+import PreviewSlide from "preview-slide";
 
 type PullRequest = {
   number: number;
@@ -14,8 +15,9 @@ export function Previews() {
   React.useEffect(() => {
     fetch(
       "https://ktbundglul5nizfvttcgpiiz6i0tbcsw.lambda-url.eu-central-1.on.aws/"
-    ).then((res) => res.json());
-    // .then((requests) => setPullRequests(requests));
+    )
+      .then((res) => res.json())
+      .then((requests) => setPullRequests(requests));
   }, []);
 
   React.useEffect(() => {
@@ -29,7 +31,7 @@ export function Previews() {
         if (data.type === "build_complete") {
           setPullRequests((currentPulls) => {
             if (!currentPulls.find((pr) => pr.number === data.pr_id)) {
-              return currentPulls.concat({ number: data.pr_id });
+              return [{ number: data.pr_id }, ...currentPulls];
             } else {
               return currentPulls;
             }

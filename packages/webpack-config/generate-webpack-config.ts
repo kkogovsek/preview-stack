@@ -57,6 +57,14 @@ module.exports = ({
         options: esbuildOptions,
       },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+      {
         test: /\.css$/i,
         use: [
           "style-loader",

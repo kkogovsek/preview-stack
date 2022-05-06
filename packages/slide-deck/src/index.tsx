@@ -1,5 +1,7 @@
 import React from "react";
 import tw from "tw";
+import { Headline, List, ListO, Slide, SubHeadline } from "./components";
+import { Processes } from "./groups/processes";
 import { Excalidraw } from "./utils/excalidraw";
 import { SlideControl, SlidesRoot } from "./utils/slide-control";
 
@@ -23,8 +25,7 @@ function Introduction() {
             Klemen - <code>@kkogovsek</code> 👋
           </li>
           <li>Ljubljana office 🐉🏰</li>
-          <li>Problem solving ⚙️</li>
-          <li>Procrastination</li>
+          <li>Inventing and solving problems ⚙️</li>
         </SlideControl>
       </List>
     </Slide>
@@ -37,63 +38,54 @@ function Agenda() {
       <SubHeadline>Agenda</SubHeadline>
       <ListO>
         <SlideControl reveal>
-          <li>Organizations</li>
           <li>Processes</li>
-          <li>CI/CD</li>
+          <li>Workflows</li>
+          <li>Tools</li>
           <li>Webpack</li>
-          <li>Federation</li>
+          <li>Microfrontends</li>
+          <li>Module Federation</li>
+          <li>Previews?</li>
         </SlideControl>
       </ListO>
+      {/* <Excalidraw
+        key="org"
+        content={require("./graphics/traditional-org.json")}
+        path={require.resolve("./graphics/traditional-org.json")}
+        edit
+      /> */}
     </Slide>
   );
 }
 
-function Organizations() {
+function Agile() {
   return (
     <Slide>
-      <SlideControl>
-        <Headline>Organizations</Headline>
-        <OldOrganizations />
-      </SlideControl>
+      <SubHeadline>Let's talk agile</SubHeadline>
+      <List>
+        <SlideControl reveal>
+          <></>
+          <li>
+            <strong>Individuals and interactions</strong> over processes and
+            tools
+          </li>
+          <li>
+            <strong>Working software</strong> over comprehensive documentation
+          </li>
+          <li>
+            <strong>Customer collaboration</strong> over contract negotiation
+          </li>
+          <li>
+            <strong>Responding to change</strong> over following a plan
+          </li>
+          <li>
+            <i>
+              while there is value in the items on the right, we value the items
+              on the left more
+            </i>
+          </li>
+        </SlideControl>
+      </List>
     </Slide>
-  );
-}
-
-function OldOrganizations() {
-  return (
-    <SlideControl>
-      <>
-        <SubHeadline>Traditional organizations</SubHeadline>
-        <Excalidraw
-          key="org"
-          content={require("./graphics/traditional-org.json")}
-          path={require.resolve("./graphics/traditional-org.json")}
-          edit
-        />
-      </>
-      <>
-        <SubHeadline>Collaboration</SubHeadline>
-        <Excalidraw
-          key="collab"
-          content={require("./graphics/traditional-org-collaboration.json")}
-          path={require.resolve(
-            "./graphics/traditional-org-collaboration.json"
-          )}
-          edit
-        />
-      </>
-      <>
-        <SubHeadline>Communication paths</SubHeadline>
-        <Excalidraw
-          key="path"
-          content={require("./graphics/traditional-org-collaboration-path.json")}
-          path={require.resolve(
-            "./graphics/traditional-org-collaboration-path.json"
-          )}
-          edit
-        />
-      </>
-    </SlideControl>
   );
 }
 
@@ -103,16 +95,8 @@ export default function SlideDeck() {
       <First />
       <Introduction />
       <Agenda />
-      <Organizations />
+      <Agile />
+      <Processes />
     </SlidesRoot>
   );
 }
-
-const Slide = tw.div<{
-  center?: boolean;
-}>`w-full h-full bg-black text-white flex flex-col items-start ${(props) =>
-  props.center ? "items-center" : ""} justify-center p-64 gap-16`;
-const Headline = tw.h1`text-9xl text-center`;
-const SubHeadline = tw.h1`text-7xl`;
-const List = tw.ul`text-6xl flex flex-col gap-6`;
-const ListO = tw.ol`text-6xl flex flex-col gap-6 list-decimal`;

@@ -24,7 +24,8 @@
     "webpack-dashboard": "^3.3.7",
     "webpack-dev-server": "^4.8.1",
     "copy-webpack-plugin": "10.2.4",
-    "path-browserify": "1.0.1"
+    "path-browserify": "1.0.1",
+    "file-loader": "6.2.0"
   },
   "dependencies": {
     "webpack": "^5.72.0"

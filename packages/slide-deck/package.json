@@ -17,6 +17,7 @@
     "react-dom": "^17.0.2",
     "@excalidraw/excalidraw": "0.11.0",
     "tw": "../tw",
-    "webpack-config": "../webpack-config"
+    "webpack-config": "../webpack-config",
+    "styled-components": "5.3.5"
   }
 }
