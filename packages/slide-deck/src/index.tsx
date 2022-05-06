@@ -1,6 +1,9 @@
 import React from "react";
 import tw from "tw";
 import { Headline, List, ListO, Slide, SubHeadline } from "./components";
+import { Demo } from "./groups/demo";
+import { Federation } from "./groups/federation";
+import { Microfrontends } from "./groups/microfrontents";
 import { Processes } from "./groups/processes";
 import { Tools } from "./groups/tools";
 import { WebpackSlides } from "./groups/webpack";
@@ -99,6 +102,9 @@ export default function SlideDeck() {
       <Workflows />
       <Tools />
       <WebpackSlides />
+      <Microfrontends />
+      <Federation />
+      <Demo />
     </SlidesRoot>
   );
 }

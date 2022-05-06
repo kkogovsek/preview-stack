@@ -167,3 +167,29 @@ module.exports = {
     }),
   ],
 };`;
+
+export const federationPluginExample = `module.exports = {
+  // ...
+  plugins: [
+    // ...
+    [
+      new webpack.container.ModuleFederationPlugin({
+        name: "remote_app",
+        filename: "container.js",
+        exposes: {
+          "./entry": "./src/App.tsx",
+        },
+        shared: [
+          {
+            react: { singleton: true, eager: true },
+            "react-dom": { singleton: true, eager: true },
+          },
+        ],
+      }),
+    ]
+    // ...
+  ]
+  // ...
+}`;
+
+export const loadRemoteModule = ``;
