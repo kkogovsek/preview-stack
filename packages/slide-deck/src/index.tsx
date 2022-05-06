@@ -2,6 +2,7 @@ import React from "react";
 import tw from "tw";
 import { Headline, List, ListO, Slide, SubHeadline } from "./components";
 import { Processes } from "./groups/processes";
+import { Workflows } from "./groups/workflows";
 import { Excalidraw } from "./utils/excalidraw";
 import { SlideControl, SlidesRoot } from "./utils/slide-control";
 
@@ -97,6 +98,7 @@ export default function SlideDeck() {
       <Agenda />
       <Agile />
       <Processes />
+      <Workflows />
     </SlidesRoot>
   );
 }
