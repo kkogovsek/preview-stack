@@ -2,6 +2,7 @@ import React from "react";
 import tw from "tw";
 
 export default function Slide() {
+  throw "😎";
   return <Test>We did it</Test>;
 }
 
