@@ -10,6 +10,7 @@ export const Headline = tw.h1`text-9xl text-center`;
 export const SubHeadline = tw.h1`text-7xl`;
 export const List = tw.ul`text-6xl flex flex-col gap-8`;
 export const ListO = tw.ol`text-6xl flex flex-col gap-8 list-decimal pl-12`;
+export const Text = tw.p`text-4xl`;
 export function Image({ src, overlay }) {
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>

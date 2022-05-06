@@ -1,5 +1,4 @@
 import React from "react";
-import tw from "tw";
 import { Headline, List, Slide, SubHeadline, Image } from "../components";
 import { Excalidraw } from "../utils/excalidraw";
 import { SlideControl } from "../utils/slide-control";

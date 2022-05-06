@@ -2,6 +2,8 @@ import React from "react";
 import tw from "tw";
 import { Headline, List, ListO, Slide, SubHeadline } from "./components";
 import { Processes } from "./groups/processes";
+import { Tools } from "./groups/tools";
+import { WebpackSlides } from "./groups/webpack";
 import { Workflows } from "./groups/workflows";
 import { Excalidraw } from "./utils/excalidraw";
 import { SlideControl, SlidesRoot } from "./utils/slide-control";
@@ -21,13 +23,11 @@ function Introduction() {
         <code># whoami</code>
       </SubHeadline>
       <List>
-        <SlideControl reveal>
-          <li>
-            Klemen - <code>@kkogovsek</code> 👋
-          </li>
-          <li>Ljubljana office 🐉🏰</li>
-          <li>Inventing and solving problems ⚙️</li>
-        </SlideControl>
+        <li>
+          Klemen - <code>@kkogovsek</code> 👋
+        </li>
+        <li>Ljubljana office 🐉🏰</li>
+        <li>Inventing and solving problems ⚙️</li>
       </List>
     </Slide>
   );
@@ -38,15 +38,13 @@ function Agenda() {
     <Slide>
       <SubHeadline>Agenda</SubHeadline>
       <ListO>
-        <SlideControl reveal>
-          <li>Processes</li>
-          <li>Workflows</li>
-          <li>Tools</li>
-          <li>Webpack</li>
-          <li>Microfrontends</li>
-          <li>Module Federation</li>
-          <li>Previews?</li>
-        </SlideControl>
+        <li>Processes</li>
+        <li>Workflows</li>
+        <li>Tools</li>
+        <li>Webpack</li>
+        <li>Microfrontends</li>
+        <li>Module Federation</li>
+        <li>Previews?</li>
       </ListO>
       {/* <Excalidraw
         key="org"
@@ -99,6 +97,8 @@ export default function SlideDeck() {
       <Agile />
       <Processes />
       <Workflows />
+      <Tools />
+      <WebpackSlides />
     </SlidesRoot>
   );
 }

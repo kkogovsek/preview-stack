@@ -18,6 +18,7 @@
     "@excalidraw/excalidraw": "0.11.0",
     "tw": "../tw",
     "webpack-config": "../webpack-config",
-    "styled-components": "5.3.5"
+    "styled-components": "5.3.5",
+    "@monaco-editor/react": "4.4.4"
   }
 }

@@ -14,6 +14,7 @@ export function Workflows() {
       <BasicGitWorkflow />
       <BasicGitWorkflowStages />
       <GitWithTeams />
+      <BasicGitWorkflow title="Back to basics" />
     </SlideControl>
   );
 }
@@ -32,15 +33,15 @@ function Goal() {
   );
 }
 
-function BasicGitWorkflow() {
+function BasicGitWorkflow({ title = "Git workflow" }) {
   return (
     <Slide>
-      <SubHeadline>Git workflow</SubHeadline>
+      <SubHeadline>{title}</SubHeadline>
       <Excalidraw
         key="org"
         content={require("../graphics/workflow-git.json")}
         path={require.resolve("../graphics/workflow-git.json")}
-        edit
+        // edit
       />
     </Slide>
   );
@@ -54,7 +55,7 @@ function BasicGitWorkflowStages() {
         key="org"
         content={require("../graphics/workflow-git-stages.json")}
         path={require.resolve("../graphics/workflow-git-stages.json")}
-        edit
+        // edit
       />
     </Slide>
   );
@@ -68,7 +69,7 @@ function GitWithTeams() {
         key="org"
         content={require("../graphics/workflow-git-team.json")}
         path={require.resolve("../graphics/workflow-git-team.json")}
-        edit
+        // edit
       />
     </Slide>
   );
