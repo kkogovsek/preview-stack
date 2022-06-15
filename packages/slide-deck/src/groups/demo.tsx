@@ -7,6 +7,7 @@ import {
   demo_0_init_sharing,
   demo_1_load_script,
   demo_2_get_module,
+  demo_3_webpack,
 } from "./assets/code/demo";
 import ending from "./assets/ending.gif";
 
@@ -27,6 +28,9 @@ export function Demo() {
       </Slide>
       <Slide>
         <Headline>DEMO</Headline>
+      </Slide>
+      <Slide>
+        <Editor value={demo_3_webpack} />
       </Slide>
       <Slide>
         <Image src={ending} />

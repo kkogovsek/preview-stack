@@ -4,6 +4,7 @@ import SlideDeck from "slide-deck";
 import styled from "styled-components";
 import { RemoteComponent } from "./loader";
 import { Previews } from "./previews";
+import qr from "./qr.png";
 
 export default function App() {
   return (
@@ -11,18 +12,10 @@ export default function App() {
       <div style={{ position: "relative" }}>
         <SlideDeck />
       </div>
-      {/* {
-        <RemoteComponent
-          system={{
-            module: "./entry",
-            scope: "federated_preview_slide",
-            url: "http://localhost:1338/container.js",
-          }}
-        />
-      }*/}
       <PreviewsContainer>
         <Previews />
       </PreviewsContainer>
+      <Qr src={qr} />
     </Grid>
   );
 }
@@ -40,6 +33,7 @@ const PreviewsContainer = styled.div`
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  gap: 8px;
   & > * {
     flex-shrink: 0;
     height: 250px;
@@ -47,4 +41,10 @@ const PreviewsContainer = styled.div`
   }
 `;
 
-// https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/1/preview-slide/container.js
+const Qr = styled.img`
+  width: 20vh;
+  height: 20vh;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+`;

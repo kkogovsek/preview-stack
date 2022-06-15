@@ -42,13 +42,41 @@ export function Previews() {
   }, []);
 
   return pullRequests.map((pull, index) => (
-    <RemoteComponent
-      key={`${pull.number}-${index}`}
-      system={{
-        module: "./entry",
-        scope: `federated_preview_slide_pr_${pull.number}`,
-        url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/${pull.number}/preview-slide/container.js`,
-      }}
-    />
+    <ErrorBoundary>
+      <RemoteComponent
+        key={`${pull.number}-${index}`}
+        system={{
+          module: "./entry",
+          scope: `federated_preview_slide_pr_${pull.number}`,
+          url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/${pull.number}/preview-slide/container.js`,
+        }}
+      />
+    </ErrorBoundary>
   ));
+}
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // You can also log the error to an error reporting service
+    this.setState({ hasError: `Error: ${error.message || error}` });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1 style={{ color: "white" }}>{this.state.hasError}</h1>;
+    }
+
+    return this.props.children;
+  }
 }
