@@ -2,11 +2,13 @@ import React from "react";
 import ExcalidrawComponent from "@excalidraw/excalidraw";
 import { resolve } from "path";
 import tw from "tw";
+import { useEditing } from "./editing";
 
 const SIZE = [1500, 700];
 const [SIZE_X, SIZE_Y] = SIZE;
 
-export function Excalidraw({ edit = false, content, path }) {
+export function Excalidraw({ content, path }) {
+  const edit = useEditing();
   const valueRef = React.useRef(content);
   const excalidrawRef = React.useRef();
 

@@ -1,10 +1,11 @@
 import React from "react";
-import { Headline, List, Slide, SubHeadline, Image } from "../components";
+import { Headline, List, Slide, SubHeadline, Image, Bold } from "../components";
 import { Excalidraw } from "../utils/excalidraw";
 import { SlideControl } from "../utils/slide-control";
 import moveFast from "./assets/move_fast.jpeg";
 import michael from "./assets/ceo.gif";
 import overlay from "./assets/empower-overlay.png";
+import boring from "./assets/boring-boss-baby.gif";
 
 export function Processes() {
   return (
@@ -12,13 +13,12 @@ export function Processes() {
       <SlideControl>
         <Intro />
         <MoveFast />
-        <ButWhy />
         <Intro />
-        <CreativeProcess />
         <Slide>
-          <Headline>L A G O M</Headline>
+          <Image src={boring} />
         </Slide>
-        <Empower />
+        <ButWhy />
+        <CreativeProcess />
       </SlideControl>
     </>
   );
@@ -34,15 +34,23 @@ function Intro() {
 
 function ButWhy() {
   return (
-    <Slide>
+    <Slide bg="red">
       <SubHeadline>But why 🤔</SubHeadline>
       <List>
         <SlideControl reveal>
           <></>
-          <li>add to confidence and consistency</li>
-          <li>make outcomes more predictable</li>
-          <li>help deliver as per requirements</li>
-          <li>enable planning</li>
+          <li>
+            add to <Bold>confidence</Bold> and <Bold>consistency</Bold>
+          </li>
+          <li>
+            make outcomes more <Bold>predictable</Bold>
+          </li>
+          <li>
+            help deliver as <Bold>per requirements</Bold>
+          </li>
+          <li>
+            enable <Bold>planning</Bold>
+          </li>
         </SlideControl>
       </List>
     </Slide>
@@ -51,23 +59,24 @@ function ButWhy() {
 
 function MoveFast() {
   return (
-    <Slide>
-      <SlideControl>
-        <div>
-          <Image src={moveFast} />
-        </div>
+    <SlideControl>
+      <Slide>
+        <Image src={moveFast} />
+      </Slide>
+      <Slide bg="purple">
         <SubHeadline>
-          You should be able to move fast without breaking things
+          You should be able to move fast without breaking (
+          <span style={{ fontStyle: "italic" }}>too many</span>) things
         </SubHeadline>
-      </SlideControl>
-    </Slide>
+      </Slide>
+    </SlideControl>
   );
 }
 
 function CreativeProcess() {
   return (
     <Slide>
-      <SubHeadline>Creative process</SubHeadline>
+      <SubHeadline bg="purple">Creative process</SubHeadline>
       <Excalidraw
         key="org"
         content={require("../graphics/creative-process.json")}

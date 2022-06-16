@@ -9,7 +9,7 @@ export function Editor({ value = "", language = "javascript" }) {
       defaultValue={value}
       theme="vs-dark"
       options={{
-        fontSize: 20,
+        fontSize: 24,
       }}
     />
   );

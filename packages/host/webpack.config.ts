@@ -15,4 +15,5 @@ module.exports = generate({
     },
   ],
   localFsPath: __dirname,
+  container: `slide_host`,
 });

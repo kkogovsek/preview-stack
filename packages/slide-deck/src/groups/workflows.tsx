@@ -22,7 +22,7 @@ export function Workflows() {
 function Goal() {
   return (
     <Slide>
-      <SubHeadline>Goal</SubHeadline>
+      <SubHeadline bg="green">Goal</SubHeadline>
       <Excalidraw
         key="org"
         content={require("../graphics/basic-workflow.json")}
@@ -36,7 +36,7 @@ function Goal() {
 function BasicGitWorkflow({ title = "Git workflow" }) {
   return (
     <Slide>
-      <SubHeadline>{title}</SubHeadline>
+      <SubHeadline bg="red">{title}</SubHeadline>
       <Excalidraw
         key="org"
         content={require("../graphics/workflow-git.json")}
@@ -50,7 +50,7 @@ function BasicGitWorkflow({ title = "Git workflow" }) {
 function BasicGitWorkflowStages() {
   return (
     <Slide>
-      <SubHeadline>Git workflow - with stages</SubHeadline>
+      <SubHeadline bg="green">Git workflow - with stages</SubHeadline>
       <Excalidraw
         key="org"
         content={require("../graphics/workflow-git-stages.json")}
@@ -64,7 +64,7 @@ function BasicGitWorkflowStages() {
 function GitWithTeams() {
   return (
     <Slide>
-      <SubHeadline>Git workflow - with team</SubHeadline>
+      <SubHeadline bg="purple">Git workflow - with team</SubHeadline>
       <Excalidraw
         key="org"
         content={require("../graphics/workflow-git-team.json")}

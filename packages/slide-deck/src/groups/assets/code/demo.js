@@ -11,14 +11,13 @@ element.onload = // Resolve the promise
 document.head.appendChild(element);
 `;
 
-export const demo_2_get_module = ` const container = window["remote_app"];
+export const demo_2_get_module = `const container = window["remote_app"];
 await container.init(__webpack_share_scopes__.default);
 const factory = await container.get("./entry");
 const Module = factory();
 return Module;`;
 
-export const demo_3_webpack = `
-new webpack.container.ModuleFederationPlugin({
+export const demo_3_webpack = `new webpack.container.ModuleFederationPlugin({
   name: "remote_app",
   filename: "container.js",
   exposes: {

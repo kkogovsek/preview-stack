@@ -7,8 +7,16 @@ import { Previews } from "./previews";
 import qr from "./qr.png";
 
 export default function App() {
+  const ref = React.useRef();
   return (
-    <Grid className="bg-black">
+    <Grid
+      className="bg-black"
+      ref={ref}
+      onDoubleClick={() => {
+        ref.current.requestFullscreen?.();
+        ref.current.webkitRequestFullscreen?.();
+      }}
+    >
       <div style={{ position: "relative" }}>
         <SlideDeck />
       </div>

@@ -15,15 +15,15 @@ export function Demo() {
   return (
     <SlideControl>
       <Slide>
-        <SubHeadline>Initialize webpack sharing</SubHeadline>
+        <SubHeadline bg="red">1. Initialize webpack sharing</SubHeadline>
         <Editor value={demo_0_init_sharing} />
       </Slide>
       <Slide>
-        <SubHeadline>Load the script</SubHeadline>
+        <SubHeadline bg="red">2. Load the script</SubHeadline>
         <Editor value={demo_1_load_script} />
       </Slide>
       <Slide>
-        <SubHeadline>Load the module</SubHeadline>
+        <SubHeadline bg="red">3. Load the module</SubHeadline>
         <Editor value={demo_2_get_module} />
       </Slide>
       <Slide>
@@ -36,10 +36,10 @@ export function Demo() {
         <Image src={ending} />
       </Slide>
       <Slide>
-        <Headline>Thanks for joining</Headline>
+        <Headline bg="green">Thanks for joining</Headline>
       </Slide>
       <Slide>
-        <Headline>Questions?</Headline>
+        <Headline bg="purple">Questions?</Headline>
       </Slide>
     </SlideControl>
   );

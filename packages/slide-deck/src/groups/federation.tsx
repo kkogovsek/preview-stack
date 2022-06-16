@@ -8,6 +8,7 @@ import {
   loadRemoteModule,
 } from "./assets/code/webpack-minimal";
 import structures from "./assets/structure.png";
+import palpatine from "./assets/palpatine.gif";
 
 export function Federation() {
   return (
@@ -16,18 +17,21 @@ export function Federation() {
         <Headline>Federation</Headline>
       </Slide>
       <Slide>
-        <SubHeadline>
+        <Image src={palpatine} />
+      </Slide>
+      <Slide>
+        <SubHeadline bg="red">
           " An organization or group within which smaller divisions have some
           degree of internal autonomy.
         </SubHeadline>
       </Slide>
       <Slide>
-        <SubHeadline>
+        <SubHeadline bg="green">
           " Early 18th century: from French fédération, from late Latin
           foederatio(n-), from the verb foederare ‚<strong>"to ally"</strong>
           ‚from foedus ‚<strong>"league"</strong>
         </SubHeadline>
-        <Text>
+        <Text bg="purple">
           <strong>league</strong> ~ a collection of people, or groups that
           combine for mutual protection or cooperation.
         </Text>
@@ -36,18 +40,20 @@ export function Federation() {
         <Image src={structures} />
       </Slide>
       <Slide>
-        <SubHeadline>How does all that relate to webpack?</SubHeadline>
+        <SubHeadline bg="green">
+          How does all that relate to webpack?
+        </SubHeadline>
       </Slide>
       <Slide>
         <SlideControl reveal>
-          <SubHeadline>ModuleFederationPlugin</SubHeadline>
+          <SubHeadline bg="red">ModuleFederationPlugin</SubHeadline>
           <Editor value={federationPluginExample} />
         </SlideControl>
       </Slide>
       <Slide>
         <SlideControl>
-          <SubHeadline>How do we load this?</SubHeadline>
-          <SubHeadline>Three simple steps</SubHeadline>
+          <SubHeadline bg="green">How do we load this?</SubHeadline>
+          <SubHeadline bg="purple">Three simple steps</SubHeadline>
         </SlideControl>
       </Slide>
     </SlideControl>

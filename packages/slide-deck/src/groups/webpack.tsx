@@ -30,10 +30,10 @@ function ReactScriptsMeme() {
   return (
     <Slide>
       <SlideControl reveal>
-        <Text>
+        <Text bg="green">
           <code># npm run eject</code>
         </Text>
-        <Text>
+        <Text bg="red">
           <code>Running react-scripts eject</code>
           <br />
           <code>💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥</code>
@@ -46,7 +46,7 @@ function ReactScriptsMeme() {
 
 function Explainer() {
   return (
-    <Slide>
+    <Slide bg="green">
       <SlideControl reveal>
         <SubHeadline>
           Webpack is a module bundler - everything is treated as module
@@ -65,7 +65,7 @@ function Explainer() {
 export function ReactScripts() {
   return (
     <Slide>
-      <SubHeadline>How is this better?</SubHeadline>
+      <SubHeadline bg="yellow">How is this better?</SubHeadline>
       <Editor value={webpackReactScripts} />
     </Slide>
   );
@@ -74,7 +74,7 @@ export function ReactScripts() {
 export function StartSmall() {
   return (
     <Slide>
-      <SubHeadline>Start small</SubHeadline>
+      <SubHeadline bg="red">Start small</SubHeadline>
       <Editor value={minimalWebpackConfig} />
     </Slide>
   );
@@ -83,7 +83,9 @@ export function StartSmall() {
 export function ItGrows() {
   return (
     <Slide>
-      <SubHeadline>🚨 Spoiler alert 🚨 It's going to grow anyway</SubHeadline>
+      <SubHeadline bg="green">
+        🚨 Spoiler alert 🚨 It's going to grow anyway
+      </SubHeadline>
       <Editor value={metaWebpackConfig} language="typescript" />
     </Slide>
   );
@@ -92,7 +94,9 @@ export function ItGrows() {
 function BundleSize() {
   return (
     <Slide>
-      <SubHeadline>And so will your code &amp; bundle anyway</SubHeadline>
+      <SubHeadline bg="purple">
+        And so will your code &amp; bundle anyway
+      </SubHeadline>
       <Excalidraw
         key="org"
         content={require("../graphics/bundle.json")}

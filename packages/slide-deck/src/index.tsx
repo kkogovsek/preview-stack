@@ -10,6 +10,9 @@ import { WebpackSlides } from "./groups/webpack";
 import { Workflows } from "./groups/workflows";
 import { Excalidraw } from "./utils/excalidraw";
 import { SlideControl, SlidesRoot } from "./utils/slide-control";
+import { Wallpaper } from "./utils/wallpaper";
+import avatar from "./groups/assets/avatar.jpeg";
+import { EditingProvider } from "./utils/editing";
 
 function First() {
   return (
@@ -21,33 +24,76 @@ function First() {
 
 function Introduction() {
   return (
-    <Slide>
-      <SubHeadline>
-        <code># whoami</code>
-      </SubHeadline>
-      <List>
-        <li>
-          Klemen - <code>@kkogovsek</code> 👋
-        </li>
-        <li>Ljubljana office 🐉🏰</li>
-        <li>Inventing and solving problems ⚙️</li>
-      </List>
+    <Slide bg="purple">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 200px",
+          gap: "32px",
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+          <SubHeadline>
+            <code># whoami</code>
+          </SubHeadline>
+          <List>
+            <li>
+              Klemen - <code>@kkogovsek</code> 👋
+            </li>
+            <li>
+              Always bet on{" "}
+              <span
+                style={{
+                  background: "#f7e017",
+                  color: "black",
+                  fontWeight: "bold",
+                  padding: "16px 2px 2px 16px",
+                }}
+              >
+                JS
+              </span>
+            </li>
+            <li>Passionate about DX</li>
+          </List>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            flexDirection: "column",
+            height: "100%",
+          }}
+        >
+          <div
+            style={{
+              overflow: "hidden",
+              width: 200,
+              height: 200,
+              borderRadius: "50%",
+              border: "2px solid white",
+            }}
+          >
+            <img src={avatar} />
+          </div>
+          <div />
+        </div>
+      </div>
     </Slide>
   );
 }
 
 function Agenda() {
   return (
-    <Slide>
-      <SubHeadline>Agenda</SubHeadline>
+    <Slide bg="green">
+      <SubHeadline color="">Agenda</SubHeadline>
       <ListO>
         <li>Processes</li>
         <li>Workflows</li>
         <li>Tools</li>
         <li>Webpack</li>
-        <li>Microfrontends</li>
         <li>Module Federation</li>
-        <li>Previews?</li>
+        <li>D E M O 🤞</li>
       </ListO>
       {/* <Excalidraw
         key="org"
@@ -61,8 +107,8 @@ function Agenda() {
 
 function Agile() {
   return (
-    <Slide>
-      <SubHeadline>Let's talk agile</SubHeadline>
+    <Slide bg="red">
+      <SubHeadline>Let's talk AGILE</SubHeadline>
       <List>
         <SlideControl reveal>
           <></>
@@ -91,20 +137,30 @@ function Agile() {
   );
 }
 
-export default function SlideDeck() {
+function SlideDeck() {
   return (
-    <SlidesRoot>
-      <First />
-      <Introduction />
-      <Agenda />
-      <Agile />
-      <Processes />
-      <Workflows />
-      <Tools />
-      <WebpackSlides />
-      <Microfrontends />
-      <Federation />
-      <Demo />
-    </SlidesRoot>
+    <EditingProvider editing={true}>
+      <SlidesRoot>
+        <First />
+        <Introduction />
+        <Agenda />
+        <Agile />
+        <Processes />
+        <Workflows />
+        <Tools />
+        <WebpackSlides />
+        <Federation />
+        <Demo />
+      </SlidesRoot>
+    </EditingProvider>
+  );
+}
+
+export default function WallpaperWrapper() {
+  return (
+    <>
+      <Wallpaper />
+      <SlideDeck />
+    </>
   );
 }
