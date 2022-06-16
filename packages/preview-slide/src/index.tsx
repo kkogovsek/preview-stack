@@ -2,7 +2,8 @@ import React from "react";
 import tw from "tw";
 
 export default function Slide() {
-  return <Test>We did it</Test>;
+  const [state, setState] = React.useState(0)
+  return <Test>We did it <button onClick={() => setState(state + 1)}>{state}</button></Test>;
 }
 
-const Test = tw.div`bg-gray-800 text-white flex items-center justify-center p-2 text-xl border-pink-100 border-dotted`;
+const Test = tw.div`bg-green-500 text-white flex items-center justify-center p-2 text-xl border-pink-100 border-dotted`;
