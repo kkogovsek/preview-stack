@@ -12,6 +12,8 @@ type PullRequest = {
   };
 };
 
+const commit = "38b349ca4bedcd71ec0e44ecc764c39cc2e2a92a";
+
 export function Previews() {
   const [pullRequests, setPullRequests] = React.useState<PullRequest[]>([]);
   React.useEffect(() => {
@@ -50,6 +52,16 @@ export function Previews() {
           <RemoteComponent system={previewSlideSystem} />
         </Suspense>
       </ErrorBoundary>
+      <ErrorBoundary>
+        <RemoteComponent
+          system={{
+            module: "./entry",
+            scope: `federated_preview_slide_pr_${commit}`,
+            url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/${commit}/preview-slide/container.js`,
+          }}
+        />
+      </ErrorBoundary>
+
       {pullRequests.map((pull, index) => (
         <ErrorBoundary key={pull.number}>
           <RemoteComponent
@@ -57,7 +69,7 @@ export function Previews() {
             system={{
               module: "./entry",
               scope: `federated_preview_slide_pr_${pull.number}`,
-              url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/${pull.number}/preview-slide/container.js`,
+              url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/previews/${pull.number}/preview-slide/container.js`,
             }}
           />
         </ErrorBoundary>

@@ -9,7 +9,7 @@ env:
   PULL_REQUEST_ID: ${{ github.sha }}
 
 jobs:
-  preview:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -42,19 +42,21 @@ jobs:
       - name: Rename preview slide
         run: |
           (cd packages/preview-slide && sed 's/preview-slide/preview-slide-${{ github.sha }}/g' package.json > package.json.tmp && mv package.json.tmp package.json)
+          (cd packages/slide-deck && sed 's/slide-deck/slide-deck-${{ github.sha }}/g' package.json > package.json.tmp && mv package.json.tmp package.json)
+          (cd packages/host && sed 's/host/host-${{ github.sha }}/g' package.json > package.json.tmp && mv package.json.tmp package.json)
 
       - name: Install dependencies
         run: npm install
 
       - name: Build
         run: |
-          cd packages/preview-slide
           npm run build
 
       - name: Deploy
         run: |
-          cd packages/preview-slide
-          aws s3 sync ./dist s3://previews-talk-hosting/${{ github.sha }}/preview-slide --acl public-read
+          (cd packages/preview-slide && aws s3 sync ./dist s3://previews-talk-hosting/commits/${{ github.sha }}/preview-slide --acl public-read)
+          (cd packages/slide-deck && aws s3 sync ./dist s3://previews-talk-hosting/commits/${{ github.sha }}/slide-deck --acl public-read)
+          (cd packages/host && aws s3 sync ./dist s3://previews-talk-hosting/commits/${{ github.sha }}/host --acl public-read)
 
       - name: Propagate
         run: |
