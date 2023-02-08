@@ -8,13 +8,13 @@ import { Previews } from "./previews";
 const slideDeckSystem = {
   module: "./entry",
   scope: "federated_slide_deck",
-  url: "http://localhost:1338/container.js",
+  url: "https://localhost:1338/container.js",
 } as const;
 
 export const previewSlideSystem = {
   module: "./entry",
   scope: "federated_preview_slide",
-  url: "http://localhost:1339/container.js",
+  url: "https://localhost:1339/container.js",
 } as const;
 
 export default function App() {

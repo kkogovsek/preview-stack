@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Host app that loads all the modules",
   "scripts": {
-    "start": "webpack-cli serve",
+    "start": "webpack-cli serve --https",
     "dev": "webpack-dashboard -m -- webpack-cli serve",
     "build": "webpack --mode production",
     "serve": "serve dist -p 1337",
