@@ -9,7 +9,7 @@
     "serve": "serve dist -p 1337",
     "clean": "rm -rf dist"
   },
-  "author": "Klemen Kogovse <klemen.kogovsek@1337.tech>",
+  "author": "Klemen Kogovse <klemen.kogovsek1@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "react": "^17.0.2",
@@ -17,7 +17,6 @@
     "@excalidraw/excalidraw": "0.11.0",
     "tw": "../tw",
     "webpack-config": "../webpack-config",
-    "slide-deck": "../slide-deck",
     "styled-components": "5.3.5"
   }
 }

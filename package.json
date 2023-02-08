@@ -9,17 +9,14 @@
     "serve": "lerna run --parallel serve",
     "clean": "lerna run --parallel clean"
   },
-  "author": "Klemen Kogovsek <klemen.kogovsek@1337.tech>",
+  "author": "Klemen Kogovsek <klemen.kogovsek1@gmail.com>",
   "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "4.0.0",
+    "lerna": "^6.4.1",
     "prettier": "2.6.2"
-  },
-  "dependencies": {
-    "lerna": "4.0.0"
   },
   "repository": {
     "type": "git",

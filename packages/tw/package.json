@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Klemen Kogovsek <klemen.kogovsek@1337.tech>",
+  "author": "Klemen Kogovsek <klemen.kogovsek1@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "react": "^17.0.2"

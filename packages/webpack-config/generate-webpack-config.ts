@@ -18,7 +18,7 @@ type SimpleConfig = {
   container?: string;
   pullRequestContainer?: boolean;
   copy?: Array<{ from: string; to: string }>;
-  localFsPath?: string;
+  localFsPath: string;
 };
 
 module.exports = ({
@@ -34,10 +34,17 @@ module.exports = ({
   mode: "development",
   devServer: {
     // contentBase: path.join(__dirname, "dist"),
+    static: {
+      directory: path.join(localFsPath, "dist"),
+    },
     port,
     open: !!template,
     headers: {
       "Cache-Control": "no-store",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization",
     },
   },
   output: {
@@ -112,6 +119,7 @@ module.exports = ({
               {
                 react: { singleton: true, eager: true },
                 "react-dom": { singleton: true, eager: true },
+                "styled-components": { singleton: true, eager: true },
               },
             ],
           }),

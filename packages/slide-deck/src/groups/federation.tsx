@@ -25,7 +25,7 @@ export function Federation() {
           degree of internal autonomy.
         </SubHeadline>
       </Slide>
-      <Slide>
+      {/* <Slide>
         <SubHeadline bg="green">
           " Early 18th century: from French fédération, from late Latin
           foederatio(n-), from the verb foederare ‚<strong>"to ally"</strong>
@@ -35,14 +35,12 @@ export function Federation() {
           <strong>league</strong> ~ a collection of people, or groups that
           combine for mutual protection or cooperation.
         </Text>
-      </Slide>
+      </Slide> */}
       <Slide>
         <Image src={structures} />
       </Slide>
       <Slide>
-        <SubHeadline bg="green">
-          How does all that relate to webpack?
-        </SubHeadline>
+        <SubHeadline bg="green">How does that relate to webpack?</SubHeadline>
       </Slide>
       <Slide>
         <SlideControl reveal>

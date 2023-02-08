@@ -1,29 +1,40 @@
-import React from "react";
+import React, { Suspense } from "react";
 import tw from "tw";
-import SlideDeck from "slide-deck";
+// import SlideDeck from "slide-deck";
 import styled from "styled-components";
 import { RemoteComponent } from "./loader";
 import { Previews } from "./previews";
-import qr from "./qr.png";
+
+const slideDeckSystem = {
+  module: "./entry",
+  scope: "federated_slide_deck",
+  url: "http://localhost:1338/container.js",
+} as const;
+
+export const previewSlideSystem = {
+  module: "./entry",
+  scope: "federated_preview_slide",
+  url: "http://localhost:1339/container.js",
+} as const;
 
 export default function App() {
-  const ref = React.useRef();
   return (
     <Grid
       className="bg-black"
-      ref={ref}
-      onDoubleClick={() => {
-        ref.current.requestFullscreen?.();
-        ref.current.webkitRequestFullscreen?.();
+      onDoubleClick={function (event) {
+        event.currentTarget.requestFullscreen?.();
+        event.currentTarget.webkitRequestFullscreen?.();
       }}
     >
       <div style={{ position: "relative" }}>
-        <SlideDeck />
+        {/* <SlideDeck /> */}
+        <Suspense fallback={null}>
+          <RemoteComponent system={slideDeckSystem} />
+        </Suspense>
       </div>
       <PreviewsContainer>
         <Previews />
       </PreviewsContainer>
-      <Qr src={qr} />
     </Grid>
   );
 }

@@ -28,10 +28,10 @@ let getRandomColorIndex = () => {
 const generatePillRow = () =>
   new Array(6).fill(null).map((_, index) => ({
     x: index * 30 - 40,
-    y: Math.round(Math.random() * 20) - 10,
+    y: Math.round(Math.random() * 30) - 10,
     key: Math.random(),
     color: variations[Object.keys(variations)[getRandomColorIndex()]],
-    velocity: 20 + Math.round(Math.random() * 200) / 100 - 0.5,
+    velocity: 40 + Math.round(Math.random() * 300) / 100 - 0.5,
   }));
 
 export function Wallpaper() {
@@ -40,7 +40,7 @@ export function Wallpaper() {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setPills((current) => current.concat(generatePillRow()));
-    }, 3600);
+    }, 7000);
     return () => clearInterval(interval);
   }, []);
 

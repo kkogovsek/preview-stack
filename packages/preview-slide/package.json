@@ -7,7 +7,7 @@
     "start": "webpack-cli serve",
     "dev": "webpack-dashboard -m -- webpack-cli serve",
     "build": "webpack --mode production",
-    "serve": "serve dist -p 1337",
+    "serve": "serve dist -p 1339",
     "clean": "rm -rf dist"
   },
   "author": "",

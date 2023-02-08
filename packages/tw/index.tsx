@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import { Tag } from "./tags";
 
 type InjectedValue<T> =
@@ -27,7 +27,7 @@ export const tw = new Proxy(
               children,
               className,
               ...props
-            }: { children: JSX.Element; className: string } & T,
+            }: PropsWithChildren<{ className: string }> & T,
             ref
           ) => {
             const classString = classStrings.reduce(

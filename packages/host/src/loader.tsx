@@ -15,7 +15,6 @@ let initialized = false;
 async function init() {
   if (!initialized) {
     // Initializes the share scope. This fills it with known provided modules from this build and all remotes
-    console.log("going in");
     initialized = __webpack_init_sharing__("default");
   }
   return initialized;
@@ -26,7 +25,6 @@ function loadComponent(scope: `federated_${string}`, module) {
   return async () => {
     await init();
     const container = window[scope]; // or get the container somewhere else
-    console.log(scope, module, container);
     // Initialize the container, it may provide shared modules
     await container.init(__webpack_share_scopes__.default);
     const factory = await window[scope].get(module);
@@ -48,7 +46,6 @@ function loadRemoteModule({ url }: { url: string }) {
     };
 
     element.onload = () => {
-      console.log(`Dynamic Script Loaded: ${url}`);
       resolve(remove);
     };
 

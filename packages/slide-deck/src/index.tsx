@@ -141,6 +141,9 @@ function SlideDeck() {
   return (
     <EditingProvider editing={true}>
       <SlidesRoot>
+        <Slide>
+          <div />
+        </Slide>
         <First />
         <Introduction />
         <Agenda />

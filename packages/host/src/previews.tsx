@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { RemoteComponent } from "./loader";
 import PreviewSlide from "preview-slide";
+import styled from "styled-components";
+import { previewSlideSystem } from "./App";
 
 type PullRequest = {
   number: number;
@@ -41,19 +43,37 @@ export function Previews() {
     });
   }, []);
 
-  return pullRequests.map((pull, index) => (
-    <ErrorBoundary>
-      <RemoteComponent
-        key={`${pull.number}-${index}`}
-        system={{
-          module: "./entry",
-          scope: `federated_preview_slide_pr_${pull.number}`,
-          url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/${pull.number}/preview-slide/container.js`,
-        }}
-      />
-    </ErrorBoundary>
-  ));
+  return (
+    <>
+      <ErrorBoundary>
+        <Suspense fallback={null}>
+          <RemoteComponent system={previewSlideSystem} />
+        </Suspense>
+      </ErrorBoundary>
+      {pullRequests.map((pull, index) => (
+        <ErrorBoundary key={pull.number}>
+          <RemoteComponent
+            key={`${pull.number}-${index}`}
+            system={{
+              module: "./entry",
+              scope: `federated_preview_slide_pr_${pull.number}`,
+              url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/${pull.number}/preview-slide/container.js`,
+            }}
+          />
+        </ErrorBoundary>
+      ))}
+    </>
+  );
 }
+
+const Avatar = styled.img`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 50%;
+`;
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
