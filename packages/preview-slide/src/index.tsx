@@ -1,5 +1,6 @@
 import React from "react";
 import tw from "tw";
+import "./base.css";
 
 export default function Slide() {
   return (

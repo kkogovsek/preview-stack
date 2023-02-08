@@ -80,6 +80,7 @@ module.exports = ({
             loader: "postcss-loader",
             options: {
               postcssOptions: {
+                config: require.resolve("../../postcss.config.js"),
                 plugins: [
                   [
                     "postcss-preset-env",

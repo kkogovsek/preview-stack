@@ -13,6 +13,7 @@ import { SlideControl, SlidesRoot } from "./utils/slide-control";
 import { Wallpaper } from "./utils/wallpaper";
 import avatar from "./groups/assets/avatar.jpeg";
 import { EditingProvider } from "./utils/editing";
+import "./base.css";
 
 function First() {
   return (
