@@ -12,7 +12,7 @@ type PullRequest = {
   };
 };
 
-const commit = "38b349ca4bedcd71ec0e44ecc764c39cc2e2a92a";
+const commit = "c7401eedab92db9be0b3b2affbdf46694f2188d5";
 
 export function Previews() {
   const [pullRequests, setPullRequests] = React.useState<PullRequest[]>([]);
@@ -57,7 +57,7 @@ export function Previews() {
           system={{
             module: "./entry",
             scope: `federated_preview_slide_pr_${commit}`,
-            url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/${commit}/preview-slide/container.js`,
+            url: `https://previews-talk-hosting.s3.eu-central-1.amazonaws.com/commits/${commit}/preview-slide/container.js`,
           }}
         />
       </ErrorBoundary>
