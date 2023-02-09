@@ -5,7 +5,7 @@ import "./base.css";
 export default function Slide() {
   return (
     <Test>
-      In prod :D &nbsp;
+      Testing &nbsp;
       <Blip />
     </Test>
   );
@@ -14,5 +14,5 @@ export default function Slide() {
 const Test = tw.div`bg-gray-800 text-white flex items-center justify-center p-2 text-xl border-pink-100 border-dotted gap-8 hover:bg-yellow-300 hover:text-black transition-all ease-in-out duration-300`;
 
 const Blip = tw.div`
-  inline-block h-8 w-8 rounded-full bg-green-600 animate-ping
+  inline-block h-4 w-4 rounded-full bg-yellow-600 animate-ping
 `;
