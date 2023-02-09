@@ -140,7 +140,7 @@ function Agile() {
 
 function SlideDeck() {
   return (
-    <EditingProvider editing={true}>
+    <EditingProvider editing={false}>
       <SlidesRoot>
         <Slide>
           <div />
