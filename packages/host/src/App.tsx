@@ -4,38 +4,49 @@ import tw from "tw";
 import styled from "styled-components";
 import { RemoteComponent } from "./loader";
 import { Previews } from "./previews";
-
-const slideDeckSystem = {
-  module: "./entry",
-  scope: "federated_slide_deck",
-  url: "https://localhost:1338/container.js",
-} as const;
+import { useCommits } from "./use-commits";
+import { CommitSelector, SystemProvider, useSystem } from "./commit-selector";
 
 export const previewSlideSystem = {
+  name: "Local",
   module: "./entry",
   scope: "federated_preview_slide",
   url: "https://localhost:1339/container.js",
 } as const;
 
+function AppWithSystem() {
+  const [system] = useSystem();
+  return (
+    <>
+      <Grid
+        className="bg-black"
+        onDoubleClick={function (event) {
+          event.currentTarget.requestFullscreen?.();
+          event.currentTarget.webkitRequestFullscreen?.();
+        }}
+      >
+        <div style={{ position: "relative" }}>
+          {/* <SlideDeck /> */}
+          {system && (
+            <Suspense fallback={null}>
+              <RemoteComponent system={system} />
+            </Suspense>
+          )}
+        </div>
+        <PreviewsContainer>
+          <Previews />
+        </PreviewsContainer>
+      </Grid>
+      <CommitSelector />
+    </>
+  );
+}
+
 export default function App() {
   return (
-    <Grid
-      className="bg-black"
-      onDoubleClick={function (event) {
-        event.currentTarget.requestFullscreen?.();
-        event.currentTarget.webkitRequestFullscreen?.();
-      }}
-    >
-      <div style={{ position: "relative" }}>
-        {/* <SlideDeck /> */}
-        <Suspense fallback={null}>
-          <RemoteComponent system={slideDeckSystem} />
-        </Suspense>
-      </div>
-      <PreviewsContainer>
-        <Previews />
-      </PreviewsContainer>
-    </Grid>
+    <SystemProvider>
+      <AppWithSystem />
+    </SystemProvider>
   );
 }
 

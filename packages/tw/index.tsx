@@ -58,7 +58,7 @@ export const tw = new Proxy(
   [key in Tag]: <T>(
     strings: TemplateStringsArray,
     ...values: Array<InjectedValue<T>>
-  ) => React.FC<T>;
+  ) => React.FC<PropsWithChildren<T>>;
 };
 
 export default tw;

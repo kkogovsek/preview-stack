@@ -94,7 +94,7 @@ const useDynamicScript = ({ url }: { url: string }) => {
   };
 };
 
-type SystemConfig = {
+export type SystemConfig = {
   url: string;
   scope: `federated_${string}`;
   module: string;
