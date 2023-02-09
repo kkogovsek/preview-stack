@@ -44,9 +44,7 @@ export function Federation() {
       </Slide>
       <Slide>
         <SlideControl reveal>
-          <SubHeadline bg="red">
-            ModuleFederationPlugin (from old commit)
-          </SubHeadline>
+          <SubHeadline bg="red">ModuleFederationPlugin</SubHeadline>
           <Editor value={federationPluginExample} />
         </SlideControl>
       </Slide>
