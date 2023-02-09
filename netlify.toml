@@ -1,4 +1,2 @@
-[[redirects]]
-  from = "/*"
-  to = "https://previews-talk-hosting.s3-website.eu-central-1.amazonaws.com/:splat"
-  status = 200
+[[build]]
+  publish = "publish"
