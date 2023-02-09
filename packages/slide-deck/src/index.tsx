@@ -18,7 +18,9 @@ import "./base.css";
 function First() {
   return (
     <Slide center>
-      <Headline>Preview it in production</Headline>
+      <Headline>
+        Preview it in <del>production</del> anywhere
+      </Headline>
     </Slide>
   );
 }
