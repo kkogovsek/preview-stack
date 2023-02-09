@@ -21,7 +21,6 @@ export function useCommits() {
           ).then((res) => res.json())
         )
       );
-      console.log({ githubInfo });
       setCommits(
         githubInfo
           .map((el) => ({
