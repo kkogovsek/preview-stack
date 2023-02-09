@@ -5,7 +5,7 @@ import "./base.css";
 export default function Slide() {
   return (
     <Test>
-      Live&nbsp;
+      In prod :D &nbsp;
       <Blip />
     </Test>
   );
