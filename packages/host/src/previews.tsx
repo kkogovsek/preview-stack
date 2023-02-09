@@ -30,7 +30,6 @@ export function Previews() {
     );
     connection.addEventListener("message", (event) => {
       try {
-        console.log(event.data);
         const data = JSON.parse(event.data);
         if (data.type === "build_complete") {
           setPullRequests((currentPulls) => {

@@ -85,7 +85,6 @@ export function CommitSelector() {
               Local
             </button>
           </div>
-          {console.log(commits)}
           {commits.map((commit) => (
             <div className="py-1" role="none" key={commit.sha}>
               <button
