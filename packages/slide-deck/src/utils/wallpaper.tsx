@@ -35,7 +35,8 @@ const generatePillRow = () =>
   }));
 
 export function Wallpaper() {
-  const [pills, setPills] = React.useState(generatePillRow);
+  const [pills, setPills] = React.useState(window.pills ?? generatePillRow);
+  window.pills = pills;
 
   React.useEffect(() => {
     const interval = setInterval(() => {
