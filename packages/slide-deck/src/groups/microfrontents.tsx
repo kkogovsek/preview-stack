@@ -12,6 +12,16 @@ export function Microfrontends() {
       </Slide>
       <Microservices />
       <MicrofrontendsArch />
+      <Slide>
+        <SubHeadline>How to build them?</SubHeadline>
+        <List>
+          <li>{`<iframe /> 😱`}</li>
+          <li>Server side composition (HTMX)</li>
+          <li>Server side routing (ex. nginx)</li>
+          <li>Astro, single-spa</li>
+          <li>Webpack Module Federation</li>
+        </List>
+      </Slide>
     </SlideControl>
   );
 }

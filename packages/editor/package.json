@@ -1,0 +1,24 @@
+{
+  "name": "editor",
+  "version": "0.0.0",
+  "description": "styled-components like utility for tailwind css",
+  "main": "./index.tsx",
+  "scripts": {
+    "start": "webpack-cli serve --https",
+    "dev": "webpack-dashboard -m -- webpack-cli serve",
+    "build": "webpack --mode production",
+    "serve": "serve dist -p 1340",
+    "clean": "rm -rf dist"
+  },
+  "author": "Klemen Kogovsek <klemen.kogovsek1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@monaco-editor/react": "4.4.4",
+    "@webcontainer/api": "^1.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "5.3.5",
+    "tw": "../tw",
+    "webpack-config": "../webpack-config"
+  }
+}

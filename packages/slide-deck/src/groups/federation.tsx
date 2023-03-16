@@ -44,9 +44,18 @@ export function Federation() {
       </Slide>
       <Slide>
         <SlideControl reveal>
-          <SubHeadline bg="red">ModuleFederationPlugin</SubHeadline>
-          <Editor value={federationPluginExample} />
+          <SubHeadline>ModuleFederationPlugin</SubHeadline>
+          <Excalidraw
+            key="org"
+            content={require("../graphics/federation.json")}
+            path={require.resolve("../graphics/federation.json")}
+            edit
+          />
         </SlideControl>
+      </Slide>
+      <Slide>
+        <SubHeadline bg="red">ModuleFederationPlugin</SubHeadline>
+        <Editor value={federationPluginExample} />
       </Slide>
       <Slide>
         <SlideControl>

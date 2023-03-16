@@ -89,8 +89,8 @@ function Agenda() {
     <Slide bg="green">
       <SubHeadline color="">Agenda</SubHeadline>
       <ListO>
-        <li>Processes</li>
         <li>Workflows</li>
+        <li>Microfrontends</li>
         <li>Tools</li>
         <li>Webpack</li>
         <li>Module Federation</li>
@@ -140,7 +140,7 @@ function Agile() {
 
 function SlideDeck() {
   return (
-    <EditingProvider editing={false}>
+    <EditingProvider editing={true}>
       <SlidesRoot>
         <Slide>
           <div />
@@ -148,9 +148,10 @@ function SlideDeck() {
         <First />
         <Introduction />
         <Agenda />
-        <Agile />
-        <Processes />
+        {/* <Agile /> */}
+        {/* <Processes /> */}
         <Workflows />
+        <Microfrontends />
         <Tools />
         <WebpackSlides />
         <Federation />
@@ -163,7 +164,7 @@ function SlideDeck() {
 export default function WallpaperWrapper() {
   return (
     <>
-      <Wallpaper />
+      {/* <Wallpaper /> */}
       <SlideDeck />
     </>
   );

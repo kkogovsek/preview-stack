@@ -11,7 +11,14 @@ export const previewSlideSystem = {
   name: "Local",
   module: "./entry",
   scope: "federated_preview_slide",
-  url: "https://localhost:1339/container.js",
+  url: "https://localhost:1337/proxy/preview-slide/container.js",
+} as const;
+
+export const localEditor = {
+  name: "Editor",
+  module: "./entry",
+  scope: "federated_editor",
+  url: "https://localhost:1337/proxy/editor/container.js",
 } as const;
 
 function AppWithSystem() {
@@ -37,6 +44,9 @@ function AppWithSystem() {
           <Previews />
         </PreviewsContainer>
       </Grid>
+      {/* <Suspense fallback={null}>
+        <RemoteComponent system={localEditor} />
+      </Suspense> */}
       <CommitSelector />
     </>
   );

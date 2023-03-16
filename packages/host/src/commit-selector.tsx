@@ -7,7 +7,7 @@ import { useCommits } from "./use-commits";
 const local: SystemConfig = {
   module: "./entry",
   scope: "federated_slide_deck",
-  url: "https://localhost:1338/container.js",
+  url: "https://localhost:1337/proxy/slide-deck/container.js",
 };
 
 const SystemContext = createContext<

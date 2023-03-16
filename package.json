@@ -7,7 +7,8 @@
     "start": "lerna run --parallel start",
     "build": "lerna run build",
     "serve": "lerna run --parallel serve",
-    "clean": "lerna run --parallel clean"
+    "clean": "lerna run --parallel clean",
+    "browser": "lerna run --parallel browser"
   },
   "author": "Klemen Kogovsek <klemen.kogovsek1@gmail.com>",
   "license": "MIT",
@@ -15,6 +16,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@rspack/cli": "^0.1.0",
     "lerna": "^6.4.1",
     "prettier": "2.6.2"
   },
@@ -27,6 +29,7 @@
   },
   "homepage": "https://github.com/kkogovsek/preview-stack#readme",
   "dependencies": {
+    "react-is": "^18.2.0",
     "tailwindcss": "^3.2.4"
   }
 }

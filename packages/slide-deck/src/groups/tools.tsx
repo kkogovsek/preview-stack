@@ -37,7 +37,6 @@ function Simple() {
         key="org"
         content={require("../graphics/tools-simple.json")}
         path={require.resolve("../graphics/tools-simple.json")}
-        edit
       />
     </Slide>
   );
@@ -65,12 +64,20 @@ function OldBuilding() {
   return (
     <Slide>
       <SubHeadline bg="red">Let's unwrap</SubHeadline>
-      <Excalidraw
-        key="org"
-        content={require("../graphics/tools-old.json")}
-        path={require.resolve("../graphics/tools-old.json")}
-        edit
-      />
+      <SlideControl>
+        <Excalidraw
+          key="org"
+          content={require("../graphics/tools-old.json")}
+          path={require.resolve("../graphics/tools-old.json")}
+          edit
+        />
+        <Excalidraw
+          key="org"
+          content={require("../graphics/tools-old-bundle.json")}
+          path={require.resolve("../graphics/tools-old-bundle.json")}
+          edit
+        />
+      </SlideControl>
     </Slide>
   );
 }
