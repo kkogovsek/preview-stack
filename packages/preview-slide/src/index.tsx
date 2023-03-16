@@ -5,8 +5,7 @@ import "./base.css";
 export default function Slide() {
   return (
     <Test>
-      Test PR &nbsp;
-      <Blip />
+      Demo gods, please have mercy on my souul
     </Test>
   );
 }
